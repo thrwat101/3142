@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
    /*Step 1: Create an array called arrStr 
         and add each word from the input as an element in the array*/
     char** arrStr = new char*[argc - 1];
-    for (int i = 1; i < argc; i++) {
+    for (int i {1}; i < argc; i++) {
         int length = strLen(argv[i]);
         char* string = new char[length + 1];
         arrStr[i - 1] = string;
@@ -23,17 +23,17 @@ int main(int argc, char* argv[]) {
     
     // Step 2: print the input.
     cout << "Your input is: " << endl;
-    for (int i = 0; i < argc - 1; i++) {
+    for (int i {0}; i < argc - 1; i++)
         cout << arrStr[i] << endl;
-    }
+    
     // Step 3: sort the input.
     strBubbleSort(arrStr, argc - 1);
     
     // Step 4: print the output. 
     cout << "Your output is: " << endl;
-    for (int i = 0; i < argc - 1; i++) {
+    for (int i {0}; i < argc - 1; i++) 
         cout << arrStr[i] << endl;
-    }
+    
     return 0;
 
 }
