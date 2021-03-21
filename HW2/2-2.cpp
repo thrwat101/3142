@@ -15,7 +15,11 @@ class TTPlayer {
     
     public:
         TTPlayer(const char* s, Gender g);
+        TTPlayer(const TTPlayer& ttp);
+        std::string toString();
+        bool operator<(const TTPlayer& rhs);
 
+    
     
 };
 
