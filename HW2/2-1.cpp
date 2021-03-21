@@ -12,7 +12,7 @@ void strBubbleSort(char* arrStr[], int array_size);
 
 int main(int argc, char* argv[]) {
    if(argc == 1)
-        cout << "No input was provided. ";
+        cout << "No input was provided. " << endl;
  
    /*Step 1: Create an array called arrStr 
         and add each word from the input as an element in the array*/
