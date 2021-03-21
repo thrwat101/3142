@@ -15,9 +15,14 @@ int main(int argc, char* argv[]) {
    /*Step 1: Create an array called arrStr 
         and add each word from the input as an element in the array*/
     char** arrStr = new char*[argc - 1];
+    int j;
     for (int i {1}; i < argc; i++) {
         int length = strLen(argv[i]);
         char* string = new char[length + 1];
+        for (j = 0; j < length; j++)
+            string[j] = argv[i][j];
+        
+        string[j] = '\0';
         arrStr[i - 1] = string;
     }
     
