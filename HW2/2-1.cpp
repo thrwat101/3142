@@ -11,21 +11,15 @@ void strSwap(char* s1, char* s2);
 void strBubbleSort(char* arrStr[], int array_size);
 
 int main(int argc, char* argv[]) {
-   
+   if(argc == 1)
+        cout << "No input was provided. ";
+ 
    /*Step 1: Create an array called arrStr 
         and add each word from the input as an element in the array*/
     char** arrStr = new char*[argc - 1];
-    int j;
-    for (int i {1}; i < argc; i++) {
-        int length = strLen(argv[i]);
-        char* string = new char[length + 1];
-        for (j = 0; j < length; j++)
-            string[j] = argv[i][j];
-        
-        string[j] = '\0';
-        arrStr[i - 1] = string;
-    }
-    
+    for(int i {1}; i < argc; i++)
+        arrStr[i] = argv[i+1];
+
     // Step 2: print the input.
     cout << "Your input is: " << endl;
     for (int i {0}; i < argc - 1; i++)
