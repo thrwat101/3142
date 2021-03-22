@@ -37,8 +37,7 @@ class TTPlayer {
         
         bool operator<(const TTPlayer& rhs) const {
             cout << "hello" << endl;
-            return true;
-//            return rhs.gender < gender;
+            return rhs.gender > gender;
         }
         
         
@@ -60,7 +59,9 @@ int main(){
     };
     
     cout << players[1].name << endl;
-//    cout << players[1].<(players[2]) << endl;
+    if (players[2] < players[1]) {
+        cout << "trueeee" << endl;
+    }
 
     return 0;
 }
