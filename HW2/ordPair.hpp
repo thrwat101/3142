@@ -12,7 +12,7 @@ class ordPair{
       T second;
 
    public:
-       ordPair(T &fir, T &sec){
+       ordPair(T &fir, T &sec) {
           if(!(fir < sec))
              throw std::invalid_argument ("Invalid order. First must be less than Second.");
           
@@ -38,7 +38,7 @@ class ordPair{
        }
        
        std::string toString() {
-          return first.toString () + " | " + second.toString ();
+          return "("+ first.toString () + " | " + second.toString () + ")";
        }
 
        bool operator==(const ordPair &other) {
