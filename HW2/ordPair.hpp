@@ -8,13 +8,13 @@ template <class T> class ordPair{
       T second;
 
    public:
-      OrdPair(T&, T&);
+      ordPair(T&, T&);
       T getFirst();
       T getSecond();
       void setFirst (T);
       void setSecond (T);
       std::string toString ();
-      bool operator==(const OrdPair &other);
+      bool operator==(const ordPair &other);
    
    ordPair<T>::ordPair(T &fir, T &sec){
       if(!(fir < sec))
@@ -45,7 +45,7 @@ template <class T> class ordPair{
       return first.toString () + " | " + second.toString ();
    }
 
-   bool ordPair<T>::operator==(const OrdPair &other) {
+   bool ordPair<T>::operator==(const ordPair &other) {
       return ((first == other.getFirst()) && (second == other.getSecond()));
    }
 
