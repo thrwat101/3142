@@ -1,30 +1,23 @@
 // Cisc 3142
 // Homework 2.2
-// Thrwat Najjar 
+// Manahil Sher and Thrwat Najjar 
 
-//#include <iostreaclTabCtrlm>
 #include <cstring>
 #include <iostream>
-
 #include "ordPair.hpp"
-
 using namespace std;
 
-enum class Gender{ female, male};
+enum class Gender {female, male};
 
 class TTPlayer {
+    char* name; 
+    Gender gen;
+
     public:
-        // change these back to private?
-        const char *name; // not supposed to have const but constructor giving an error cuz assigning to const, have to figure this out
-        Gender gen;
-        
         TTPlayer(const char* s = "default", Gender g = Gender::male); // I added the defaults cuz ordPair kept asking for the basic TTPlayer() constructor idk why
         
         // copy constructor
         TTPlayer(const TTPlayer& ttp) : name{ttp.name}, gen{ttp.gen} {}
-        
-        // copy assignment
-//        TTPlayer& operator=(const TTPlayer& rhs); // doesn't work
         
         std::string toString() {
             std::string sname = "";
@@ -50,10 +43,10 @@ class TTPlayer {
 
 // not inline constructor
 TTPlayer::TTPlayer(const char* s, Gender g) {
-//    int length = sizeof(s)/sizeof(char);
-//    name = new char[length + 1]; // I think we have to do it like this, but then how do you populate char?
-    name = &s[0];
+    name = new char [strlen(s)];
+    memcpy(name, s, strlen(s));
     gen = {g};
+    
 }
 
 int main(){

@@ -1,6 +1,6 @@
 // Cisc 3142
 // Homework 2.1
-// Thrwat Najjar 
+// Thrwat Najjar and Manahil Sher
 
 #include <iostream>
 using namespace std;

@@ -1,6 +1,6 @@
 // Cisc 3142
 // Homework 2.2
-// Thrwat Najjar
+// Thrwat Najjar and Manahil Sher
 
 #include <string>
 #include <stdexcept>
