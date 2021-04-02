@@ -7,7 +7,7 @@
 #include "ordpair.hpp"
 using namespace std;
 
-enum class Gender {female, male};
+enum class Gender {female = 1, male = 2};
 
 class TTPlayer {
     char* name; 
