@@ -1,4 +1,3 @@
-
 // Cisc 3142
 // Homework 2.2
 // Manahil Sher and Thrwat Najjar 
@@ -14,9 +13,7 @@ template <class T> class ordpair {
             throw std::invalid_argument("Invalid order. First must be less than Second.");
         }
 
-        
         T getFirst(){ return first; }
-
         
         T getSecond(){ return second; }
 
