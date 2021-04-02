@@ -4,7 +4,7 @@
 
 #include <cstring>
 #include <iostream>
-#include "ordPair.hpp"
+#include "ordpair.hpp"
 using namespace std;
 
 enum class Gender {female, male};
@@ -14,10 +14,14 @@ class TTPlayer {
     Gender gen;
 
     public:
-        TTPlayer(const char* s = "default", Gender g = Gender::male); // I added the defaults cuz ordPair kept asking for the basic TTPlayer() constructor idk why
+        TTPlayer(const char* s, Gender g);
         
         // copy constructor
-        TTPlayer(const TTPlayer& ttp) : name{ttp.name}, gen{ttp.gen} {}
+        TTPlayer(const TTPlayer& ttp){
+            name = new char [strlen(ttp.name)];
+            memcpy(name, ttp.name, strlen(ttp.name));
+            gen = {ttp.gen};
+        }
         
         std::string toString() {
             std::string sname = "";
@@ -31,11 +35,7 @@ class TTPlayer {
         }
         
         bool operator<(const TTPlayer& rhs) const {
-            return rhs.gen > gen;
-        }
-        
-        bool operator==(const TTPlayer& rhs) const {
-            return &rhs == this;
+            return (gen < rhs.gen);
         }
         
         ~TTPlayer() { delete name; }
@@ -63,10 +63,10 @@ int main(){
         for (int j = 0; j < n; j++) {
             
             // don't compare with itself
-            if (players[i] == players[j]) continue;
+            if (i == j) continue;
             
             try {
-                ordPair<TTPlayer> pair(players[i], players[j]); // this was working with Gender, but not with TTPlayer unless we have the basic TTPlayer constructor for some reason
+                ordpair<TTPlayer> pair(players[i], players[j]);
                 cout << pair.toString() << endl;
                 
             } catch(std::invalid_argument) {}
