@@ -7,9 +7,9 @@ template <class T> class ordpair {
       T second;
    
     public: 
-        ordpair(T &fir, T &sec): 
-        first {std::move(fir)}, second {std::move(sec)}
-        { if (!(fir < sec)) 
+        ordpair(T &fir, T &sec): first {std::move(fir)}, second {std::move(sec)}
+        { 
+        if (!(fir < sec)) 
             throw std::invalid_argument("Invalid order. First must be less than Second.");
         }
 

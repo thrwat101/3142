@@ -37,6 +37,9 @@ class TTPlayer {
         bool operator<(const TTPlayer& rhs) const {
             return (gen < rhs.gen);
         }
+        bool operator==(const TTPlayer& rhs) const {
+            return (&rhs == this);
+        }
         
         ~TTPlayer() { delete name; }
 };
@@ -63,7 +66,7 @@ int main(){
         for (int j = 0; j < n; j++) {
             
             // don't compare with itself
-            if (i == j) continue;
+            if (players[i] == players[j]) continue;
             
             try {
                 ordpair<TTPlayer> pair(players[i], players[j]);
