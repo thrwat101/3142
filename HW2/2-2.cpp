@@ -58,8 +58,7 @@ int main(){
         {"Player2", Gender::female},
         {"Player3", Gender::male},
         {"Player4", Gender::female},
-        {"Player5", Gender::male},
-        {"Player6", Gender::female}
+        {"Player5", Gender::male}
     };
     
     int n = sizeof(players) / sizeof(TTPlayer);
