@@ -58,7 +58,8 @@ int main(){
         {"Player2", Gender::female},
         {"Player3", Gender::male},
         {"Player4", Gender::female},
-        {"Player5", Gender::male}
+        {"Player5", Gender::male},
+        {"Player6", Gender::female}
     };
     
     int n = sizeof(players) / sizeof(TTPlayer);
@@ -70,7 +71,7 @@ int main(){
             
             try {
                 ordpair<TTPlayer> pair(players[i], players[j]);
-                cout << pair.toString() << endl;
+                cout << "Pair valid: " << pair.toString() << endl;
                 
             } catch(std::invalid_argument) {}
         }

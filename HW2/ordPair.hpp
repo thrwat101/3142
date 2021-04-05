@@ -1,6 +1,7 @@
 // Cisc 3142
 // Homework 2.2
-// Manahil Sher and Thrwat Najjar 
+// Manahil Sher and Thrwat Najjar
+
 template <class T> class ordpair {
    private:
       T first;
