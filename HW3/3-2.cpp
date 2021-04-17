@@ -35,9 +35,11 @@ int main(){
         while(phoneno.is_open()) { 
             getline(phoneno, line); 
 
-            stringstream geek(line); 
+            // turning the id from the file from type string to int
+            stringstream ss(line); 
             int id = 0; 
-            geek >> id;
+            ss >> id;
+            
             string phone_num = line.substr(7, 12);
             
             // Storing the data into the map
