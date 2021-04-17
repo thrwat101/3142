@@ -24,6 +24,11 @@ int main(){
     // Opening file
     ifstream phoneno;
     phoneno.open("phoneno.txt");
+
+    if(!phoneno.good()){
+        cout << "Trouble opening file.";
+        return 1;
+    }
      
     string line;
     int numbers = 0;
