@@ -28,13 +28,13 @@ int main(){
     if(phoneno.fail()){
         cout << "Trouble opening file.";
         return 1;
-        
+
     } else{
      
         string line;
         int numbers = 0;
         // Reading file into our map
-        while(phoneno) { 
+        while(phoneno.is_open()) { 
             getline(phoneno, line); 
 
             stringstream geek(line); 
@@ -63,7 +63,7 @@ int main(){
         // Finding the id's associated with number 212-536-6331
         vector<int> ids212;
         for(auto i : mp)
-            if(i.second == "456-789-1234")
+            if(i.second == "212-536-6331")
                 ids212.push_back(i.first);
         
         cout << "Size of the map: " << mp.size() << endl;
@@ -76,7 +76,8 @@ int main(){
         cout << "Size of the vector with unique (212) numbers: " << set212.size() << endl;
         
         // close file 
-        phoneno.close(); 
+        phoneno.close();
+        return 0; 
     }
 
 }
