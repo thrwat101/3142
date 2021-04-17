@@ -36,7 +36,7 @@ int main(){
             getline(phoneno, line); 
 
             // turning the id from the file from type string to int
-            stringstream ss(line); 
+            stringstream ss(line.substr(0,6)); 
             int id = 0; 
             ss >> id;
             
