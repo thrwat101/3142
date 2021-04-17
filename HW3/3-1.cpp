@@ -62,19 +62,21 @@ int main(){
 
     cout << "STARTING VECTOR CREATION TIME: " << fixed << std::setprecision(10) 
     << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time).count() 
-    << " nano seconds\n" << endl;
+    << " nano seconds" << endl;
+
+    cout << endl;
 
     // 2. Randomizing the order of values so they are shuffled.
     start_time = chrono::steady_clock::now();
     
-    int rand1, rand2, temp;
+    int r1, r2, temp;
     for(int i = 1; i <= total_elems/2; i++){
-        rand1 = rand() % total_elems;
-        rand2 = rand() % total_elems;
-        if(rand1 != rand2){
-            temp = vect[rand1];
-            vect[rand1] = vect[rand2];
-            vect[rand2] = temp;
+        r1 = rand() % total_elems;
+        r2 = rand() % total_elems;
+        if(r1 != r2){
+            temp = vect[r1];
+            vect[r1] = vect[r2];
+            vect[r2] = temp;
         }
 
     }
@@ -83,40 +85,80 @@ int main(){
 
     /* 3. Measure the time to insert all elements of vect into another 
     vector, list, set, and unordered_set, at the end of the container. */
-    bool start = true;
     bool end = false;
 
     vector<int> other_vect1;
-    insertAt(vect, other_vect1, start);
+    insertAt(vect, other_vect1, end);
 
     list<int> list1;
-    insertAt(vect, list1, start);
+    insertAt(vect, list1, end);
 
     set<int> set1;
-    insertAt(vect, set1, start);
+    insertAt(vect, set1, end);
 
     unordered_set<int> uset1;
-    insertAt(vect, uset1, start);
+    insertAt(vect, uset1, end);
+    
+    cout << endl;
+
+    // 4. inserting elements at the beginning of the container.
+    bool start = true;
+
+    vector<int> other_vect2;
+    insertAt(vect, other_vect2, start);
+
+    list<int> list2;
+    insertAt(vect, list2, start);
+
+    set<int> set2;
+    insertAt(vect, set2, start);
+
+    unordered_set<int> uset2;
+    insertAt(vect, uset2, start);
 
     cout << endl;
 
-    vector<int> other_vect2;
-    insertAt(vect, other_vect2, end);
-
-    list<int> list2;
-    insertAt(vect, list2, end);
-
-    set<int> set2;
-    insertAt(vect, set2, end);
-
-    unordered_set<int> uset2;
-    insertAt(vect, uset2, end);
-
-    // 4. 
-
-
+    // 5. Measuring the time to find each value of 1 - 10k.
+    int num = 10000;
     
+    //vect
+    start_time = chrono::steady_clock::now();
+    for(int i = 1; i <= num; i ++)
+        auto elems = find(other_vect1.begin(), other_vect1.end(), i);
+    end_time = chrono::steady_clock::now();
 
+    cout << "Time to find 10k numbers in vector: " 
+        << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time ).count() 
+        << " nano seconds " << endl;
 
+    //list
+    start_time = chrono::steady_clock::now();
+    for(int i = 1; i <= num; i ++)
+        auto elems = find(list1.begin(), list1.end(), i);
+    end_time = chrono::steady_clock::now();
+    
+    cout << "Time to find 10k numbers in list: " 
+        << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time ).count() 
+        << " nano seconds " << endl;
+
+    //set
+    start_time = chrono::steady_clock::now();
+    for(int i = 1; i <= num; i ++)
+        auto elems = set1.find(i);
+    end_time = chrono::steady_clock::now();
+
+    cout << "Time to find 10k numbers in set: " 
+        << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time ).count() 
+        << " nano seconds " << endl;
+
+    //unordered set
+    start_time = chrono::steady_clock::now();
+    for(int i = 1; i <= num; i ++)
+        auto elems = uset1.find(i);
+    end_time = chrono::steady_clock::now();
+
+    cout << "Time to find 10k numbers in unordered set: " 
+        << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time ).count() 
+        << " nano seconds " << endl;
 
 }
