@@ -127,7 +127,7 @@ int main(){
         auto elems = find(other_vect1.begin(), other_vect1.end(), i);
     end_time = chrono::steady_clock::now();
 
-    cout << "Time to find 10k numbers in vector: " 
+    cout << "Vector time to find values of 1-10k numbers: " 
         << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time ).count() 
         << " nano seconds " << endl;
 
@@ -137,7 +137,7 @@ int main(){
         auto elems = find(list1.begin(), list1.end(), i);
     end_time = chrono::steady_clock::now();
     
-    cout << "Time to find 10k numbers in list: " 
+    cout << "List time to find value of 1-10k numbers: " 
         << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time ).count() 
         << " nano seconds " << endl;
 
@@ -147,7 +147,7 @@ int main(){
         auto elems = set1.find(i);
     end_time = chrono::steady_clock::now();
 
-    cout << "Time to find 10k numbers in set: " 
+    cout << "Set time to find value of 1-10k numbers: " 
         << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time ).count() 
         << " nano seconds " << endl;
 
@@ -157,7 +157,7 @@ int main(){
         auto elems = uset1.find(i);
     end_time = chrono::steady_clock::now();
 
-    cout << "Time to find 10k numbers in unordered set: " 
+    cout << "Unordered set time to find value of 1-10k numbers: " 
         << chrono::duration_cast<chrono::nanoseconds>(end_time - start_time ).count() 
         << " nano seconds " << endl;
 
