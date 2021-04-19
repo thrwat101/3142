@@ -11,55 +11,50 @@
 using namespace std;
 
 int main(){
-    // map to store id's (key) and phone numbers (value) from file
-    map<int, string> mp;
+    try{
+        ifstream phoneno("phoneno.txt");
+        if (!phoneno.good())
+            throw string("Failure opening phoneno.txt");
+        
+        // map to store id's (key) and phone numbers (value) from file
+        map<int, string> mp;
 
-    //vector to store all phone numbers with area code 212
-    vector<string> ac212;
-    //using a set will take out all duplicates.
-    set<string> set212;
+        //vector to store all phone numbers with area code 212
+        vector<string> ac212;
+        //using a set will take out all duplicates.
+        set<string> set212;
 
-    // Opening file
-    ifstream phoneno;
-    phoneno.open("phoneno.txt");
-
-    if(phoneno.fail()){
-        cout << "Trouble opening file.";
-        return 1;
-
-    } else{
-     
         string line;
         int numbers = 0;
         // Reading file into our map
-        while(phoneno.is_open()) { 
+        while(phoneno){
             getline(phoneno, line); 
 
             // turning the id from the file from type string to int
             stringstream ss(line.substr(0,6)); 
             int id = 0; 
-            ss >> id;
-            
+            ss >> id; 
+
             string phone_num = line.substr(7, 12);
-            
-            // Storing the data into the map
+
+            // storing the data into the map
             mp[id] = phone_num;
-            
+
             string area_code = line.substr(7, 3);
             
             // finding all numbers with area code 347  
             if(area_code == "347")
                 numbers++;
-            
+
             /* finding all numbers with area code 212 
             with and without duplicates */
             if(area_code == "212"){
                 ac212.push_back(phone_num);
                 set212.insert(phone_num);
             }
+            
+        }
 
-        } 
-        
         // Finding the id's associated with number 212-536-6331
         vector<int> ids212;
         for(auto i : mp)
@@ -74,10 +69,15 @@ int main(){
         cout << endl;
         cout << "Size of the vector with all (212) numbers: " << ac212.size() << endl;
         cout << "Size of the vector with unique (212) numbers: " << set212.size() << endl;
-        
+
         // close file 
         phoneno.close();
-        return 0; 
-    }
+        return 0;
 
+    } 
+    catch(string message){
+        cerr << message << endl;
+        exit(1);
+    }
+    
 }
