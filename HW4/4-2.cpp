@@ -27,8 +27,8 @@ class ItemRecord {
         char getRating(){ return rating; }
         
         // 3. overloaded “<<” operator which outputs the title only
-        friend ostream& operator<<(ostream &out, const ItemRecord &ir){
-            out << ir.title;
+        friend ostream& operator<<(ostream &out, const ItemRecord &item){
+            out << item.title;
         }
 
         // 4. overloaded “==” operator which only compares the item's rating
