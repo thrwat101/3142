@@ -32,8 +32,8 @@ class ItemRecord {
         }
 
         // 4. overloaded “==” operator which only compares the item's rating
-        bool operator==(const ItemRecord &ir){ 
-            return this -> rating == ir.rating;
+        bool operator==(const ItemRecord &item){ 
+            return this -> rating == item.rating;
         }
 
         // 5. setPrice(double), which throws a range_error exception 
