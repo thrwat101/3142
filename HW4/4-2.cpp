@@ -96,7 +96,7 @@ class CdRecord: public ItemRecord {
         ItemRecord(t, p, r){
             size = v.size();
             trackTimes = new double[size];
-            for(int i=0; i<size; i++)
+            for(int i = 0; i < size; i++)
                 trackTimes[i] = v[i];
         }
 
@@ -110,7 +110,7 @@ class CdRecord: public ItemRecord {
 
         }
 
-        ~CdRecord(){delete[]trackTimes;}
+        ~CdRecord(){ delete[]trackTimes; }
 
 };
 
