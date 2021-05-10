@@ -6,29 +6,21 @@
 using namespace std;
 
 int main() {
-   char set[10000];
+   char message[10000];
    int shift;
 
    // Getting character set input.
    cout << "Enter set of text: " << endl;
-   cin.getline(set, 10000);
-   int length = strlen(set);
+   cin.getline(message, 10000);
 
    // Getting fixed number to shift the character set.
    cout << "Enter shift number: " << endl;
    cin >> shift;
-   
-   /* Choosing whether we are Encrypting the given set
-      or if we have an already encrypted text we are decrypting */
-   int scheme;
-   cout << "Enter '1' for Encryption or '2' for Decipher " << endl;
-   cin >> scheme; 
 
    // ENCRYPTION
-   if(scheme == 1){  
       char enc;
-      for(int i = 0; set[i] != '\0'; i++) {
-         enc = set[i];
+      for(int i = 0; message[i] != '\0'; i++) {
+         enc = message[i];
 
          // Lowercase encryption
          if(enc >= 'a' && enc <= 'z'){
@@ -36,7 +28,7 @@ int main() {
             if (enc > 'z')
                enc = enc - 'z' + 'a' - 1;
                
-            set[i] = enc;
+            message[i] = enc;
          }
 
          // Uppercase encryption
@@ -45,39 +37,12 @@ int main() {
             if (enc > 'Z')
                enc = enc - 'Z' + 'A' - 1;
 
-            set[i] = enc;
+            message[i] = enc;
          }
 
       }
-      printf("Encryption complete: %s", set);
-   }
-
-   // DECRYPTION 
-   else if (scheme == 2) { 
-      char dec;
-      for(int i = 0; set[i] != '\0'; i++) {
-         dec = set[i];
-         
-         // Lowercase 
-         if(dec >= 'a' && dec <= 'z') {
-            dec = dec - shift;
-            if(dec < 'a')
-               dec = dec + 'z' - 'a' + 1;
-            
-            set[i] = dec;
-         }
-         
-         // Uppercase 
-         else if(dec >= 'A' && dec <= 'Z') {
-            dec = dec - shift;
-            if(dec < 'A') 
-               dec = dec + 'Z' - 'A' + 1;
-            
-            set[i] = dec;
-         }
-
-      }
-      cout << "Deciphered text: " << set << endl;
-   }
+      printf("Encryption complete: %s", message);
+      
    return 0;
+
 }
