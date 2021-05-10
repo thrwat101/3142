@@ -59,13 +59,13 @@ class BookRecord: public ItemRecord {
         int size;
 
     public:
-        BookRecord(vector<int> v, string t = "placeholder", double p = 0.99, char r = 'D'):
+        BookRecord(vector<int> vect, string t = "placeholder", double p = 0.99, char r = 'D'):
         
         ItemRecord(t, p, r){
             chPages = new int[size];
-            size = v.size(); 
+            size = vect.size(); 
             for(int i = 0; i < size; i++)
-                chPages[i] = v[i];
+                chPages[i] = vect[i];
             
         }
 
@@ -91,13 +91,13 @@ class CdRecord: public ItemRecord {
         int size;
 
     public:
-        CdRecord(vector<double> v, string t = "placeholder", double p = 0.99, char r = 'D'):
+        CdRecord(vector<double> vect, string t = "placeholder", double p = 0.99, char r = 'D'):
         
         ItemRecord(t, p, r){
-            size = v.size();
+            size = vect.size();
             trackTimes = new double[size];
             for(int i = 0; i < size; i++)
-                trackTimes[i] = v[i];
+                trackTimes[i] = vect[i];
         }
 
         string to_string() {
