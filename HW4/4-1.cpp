@@ -27,7 +27,7 @@ int main() {
    // ENCRYPTION
    if(scheme == 1){  
       char enc;
-      for(int i = 0; set[i] != '\0'; ++i) {
+      for(int i = 0; set[i] != '\0'; i++) {
          enc = set[i];
 
          // Lowercase encryption
@@ -55,7 +55,7 @@ int main() {
    // DECRYPTION 
    else if (scheme == 2) { 
       char dec;
-      for(int i = 0; set[i] != '\0'; ++i) {
+      for(int i = 0; set[i] != '\0'; i++) {
          dec = set[i];
          
          // Lowercase 
