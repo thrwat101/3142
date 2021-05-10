@@ -10,7 +10,7 @@ int main() {
    int shift;
 
    // Getting character set input.
-   cout << "Enter set to encrypt: " << endl;
+   cout << "Enter set of text: " << endl;
    cin.getline(set, 10000);
    int length = strlen(set);
 
@@ -25,7 +25,7 @@ int main() {
    cin >> scheme; 
 
    // ENCRYPTION
-   if(scheme == 1){ 
+   if(scheme == 1){  
       char enc;
       for(int i = 0; set[i] != '\0'; ++i) {
          enc = set[i];
