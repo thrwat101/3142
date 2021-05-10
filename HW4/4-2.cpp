@@ -68,7 +68,7 @@ class BookRecord: public ItemRecord {
                 chPages[i] = v[i];
             
         }
-        
+
         string to_string() {
             int pages = 0;
             for(int i = 0; i < size; i++)
@@ -91,7 +91,7 @@ class CdRecord: public ItemRecord {
         int size;
 
     public:
-        CdRecord(vector<double> v, string t="placeholder", double p=0.99, char r='D'):
+        CdRecord(vector<double> v, string t = "placeholder", double p = 0.99, char r = 'D'):
         
         ItemRecord(t, p, r){
             size = v.size();
