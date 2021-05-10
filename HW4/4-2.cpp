@@ -62,8 +62,8 @@ class BookRecord: public ItemRecord {
         BookRecord(vector<int> vect, string t = "placeholder", double p = 0.99, char r = 'D'):
         
         ItemRecord(t, p, r){
-            chPages = new int[size];
-            size = vect.size(); 
+            size = vect.size();
+            chPages = new int[size]; 
             for(int i = 0; i < size; i++)
                 chPages[i] = vect[i];
             
