@@ -68,6 +68,7 @@ class BookRecord: public ItemRecord {
                 chPages[i] = v[i];
             
         }
+        
         string to_string() {
             int pages = 0;
             for(int i = 0; i < size; i++)
@@ -77,6 +78,7 @@ class BookRecord: public ItemRecord {
             + ", " + this -> getRating() + ", " + std::to_string(pages) + " ]";
 
         }
+
         ~BookRecord(){ delete[]chPages; }
 
 };
@@ -107,6 +109,7 @@ class CdRecord: public ItemRecord {
             + ", " + this -> getRating() + ", " + std::to_string(minutes) + " ]";
 
         }
+
         ~CdRecord(){delete[]trackTimes;}
 
 };
